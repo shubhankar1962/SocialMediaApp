@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".auth.SignUpActivity">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/signUpImgeView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="152dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/addImageIcon"
+        android:background="#52AEF8"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="96dp"
+        android:src="@drawable/add_icon"
+        app:civ_border_color="@color/black"
+        app:civ_border_width="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/signUpImgeView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/signUpImgeView"
+        app:layout_constraintTop_toTopOf="@+id/signUpImgeView" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/mail"
+        android:layout_width="347dp"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registerMail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Email" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password"
+        android:layout_width="343dp"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registerPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Password" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpImgeView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registerUserName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Name/username" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/registerBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:text="SignUP"
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Already have an account?"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/registerBtn"
+        app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
+
+    <TextView
+        android:id="@+id/signUptoLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login here"
+        android:textColor="#19ABED"
+        android:textSize="18sp"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/registerBtn"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
