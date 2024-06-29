@@ -6,14 +6,16 @@ class User {
     var email:String? = null
     var bio:String? = null
     var password:String? = null
+    var premiumUser:Boolean? = null
 
     constructor()
-    constructor(image: String?, name: String?, email: String?,bio:String?, password: String?) {
+    constructor(image: String?, name: String?, email: String?,bio:String?, password: String?,premiumUser:Boolean) {
         this.image = image
         this.name = name
         this.email = email
         this.bio = bio
         this.password = password
+        this.premiumUser = premiumUser
 
     }
 

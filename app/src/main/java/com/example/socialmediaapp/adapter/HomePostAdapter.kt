@@ -33,12 +33,18 @@ class HomePostAdapter(val context:Context,val postList:ArrayList<Post>):Recycler
     override fun onBindViewHolder(holder: HomePostViewHolder, position: Int) {
         var isLike:Boolean = false
         var cntLike = 0
+        var premiumUser:Boolean? = false
+
         try{
             Firebase.firestore.collection(USER_NODE).document(postList.get(position).uid).get()
                 .addOnSuccessListener {
                     val user:User = it.toObject<User>()!!
-                    holder.binding.profileName.text = user.name
-                    Glide.with(context).load(user.image).placeholder(R.drawable.profile_icon).into(holder.binding.profileImg)
+                    premiumUser = user.premiumUser
+                    holder.binding.profileName.text = user!!.name
+                    if(premiumUser == true){
+                        Glide.with(context).load(postList.get(position)).placeholder(R.drawable.blue_tick).into(holder.binding.blueTick)
+                    }
+                    Glide.with(context).load(user!!.image).placeholder(R.drawable.profile_icon).into(holder.binding.profileImg)
                 }
         }
         catch (e:Exception)
@@ -49,6 +55,7 @@ class HomePostAdapter(val context:Context,val postList:ArrayList<Post>):Recycler
         Glide.with(context).load(postList.get(position).postImgUrl).placeholder(R.drawable.addpost_icon).into(holder.binding.postImg)
         holder.binding.caption.text = postList.get(position).caption
 
+
         try{
             val time = TimeAgo.using(postList.get(position).time.toLong())
             holder.binding.profiletime.text = time
@@ -58,6 +65,7 @@ class HomePostAdapter(val context:Context,val postList:ArrayList<Post>):Recycler
         }
       //  holder.binding.profileName.text = postList.get(position).userName
         Glide.with(context).load(postList.get(position).userProfileImg).placeholder(R.drawable.profile_icon).into(holder.binding.profileImg)
+
         holder.binding.like.setOnClickListener {
             if(!isLike) {
                 cntLike++

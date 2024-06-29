@@ -7,6 +7,7 @@ class Post {
     var time:String = ""
     var userProfileImg:String = ""
     var userName:String = ""
+   // var premiumUser:Boolean? = false
 
     constructor()
 
@@ -21,6 +22,7 @@ class Post {
         this.caption = caption
         this.uid = uid
         this.time = time
+        //this.premiumUser = premiumUser
         //this.userName = userName
         //this.userProfileImg = userProfileImg
     }

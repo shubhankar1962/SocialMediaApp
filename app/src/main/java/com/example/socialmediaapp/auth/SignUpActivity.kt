@@ -58,6 +58,8 @@ class SignUpActivity : AppCompatActivity() {
         binding  = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         user = User()
 
         if(intent.hasExtra("MODE")) {
@@ -83,6 +85,7 @@ class SignUpActivity : AppCompatActivity() {
                     Firebase.firestore.collection(USER_NODE).document(Firebase.auth.currentUser!!.uid).set(user)
                         .addOnSuccessListener {
                             Log.e("TAG",user.image.toString())
+
                             startActivity(Intent(this,MainActivity::class.java))
                             finish()
                         }
@@ -148,6 +151,9 @@ class SignUpActivity : AppCompatActivity() {
         user.email = binding.registerMail.text.toString()
         Firebase.firestore.collection(USER_NODE).document(Firebase.auth.currentUser!!.uid).set(user)
             .addOnSuccessListener {
+//                val intent = Intent(this,MainActivity::class.java)
+//                intent.putExtra("profileImg", imageUrl)
+//                startActivity(intent)
                 startActivity(Intent(this,MainActivity::class.java))
                 finish()
             }
